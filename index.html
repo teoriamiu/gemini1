@@ -521,7 +521,7 @@ const app = {
     },
     
     // REEMPLAZA la función 'callGemini' actual por esta:
-callGemini: async function(prompt, systemInstruction = "Eres un experto nutricionista.") {
+callGemini: async function(prompt, systemInstruction = "Tu nombre es Agustín Díaz y eres un experto nutricionista.") {
     // Dirección de TU función Netlify
     const functionUrl = '/.netlify/functions/chat';
     
@@ -646,7 +646,6 @@ callGemini: async function(prompt, systemInstruction = "Eres un experto nutricio
         document.getElementById('chat-container').innerHTML = '';
         this.addMessage('ai', 'Chat reiniciado. ¿En qué puedo ayudarte hoy?');
     }
-    
 };
 
 window.onload = () => app.init();
