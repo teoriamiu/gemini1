@@ -9,10 +9,9 @@ Una plataforma web interactiva para aprender sobre nutrición, calcular requerim
 3. **Selecciona "Import from Git"** → GitHub
 4. **Elige tu repositorio**
 5. **Configura el despliegue**:
-   - Build command: (deja vacío)
-   - Publish directory: `.`
+- Build command: (deja vacío)
+- Publish directory: `.`
 6. **Haz clic en "Deploy site"**
-7. 
 
 ## 🔑 Configuración de la API Key
 
@@ -21,5 +20,5 @@ Una plataforma web interactiva para aprender sobre nutrición, calcular requerim
 1. Ve a [Google AI Studio](https://makersuite.google.com/app/apikey)
 2. Genera una nueva API Key
 3. En `index.html`, línea ~1045, reemplaza:
-   ```javascript
-   const apiKey = "TU_API_KEY_AQUI";
+```javascript
+const apiKey = "TU_API_KEY_AQUI";
