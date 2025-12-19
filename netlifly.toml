@@ -2,6 +2,7 @@
 publish = "."
 command = "echo 'No build step required'"
 
+
 [[redirects]]
 from = "/*"
 to = "/index.html"

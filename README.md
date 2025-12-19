@@ -12,6 +12,7 @@ Una plataforma web interactiva para aprender sobre nutrición, calcular requerim
    - Build command: (deja vacío)
    - Publish directory: `.`
 6. **Haz clic en "Deploy site"**
+7. 
 
 ## 🔑 Configuración de la API Key
 
