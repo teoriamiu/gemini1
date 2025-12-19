@@ -636,7 +636,7 @@ callGemini: async function(prompt, systemInstruction = "Tu nombre es Agustín D�
         container.appendChild(thinking);
         container.scrollTop = container.scrollHeight;
         
-        const response = await this.callGemini(text, "Eres un tutor de nutrición certificado. Responde con base científica, sé claro y conciso.");
+        const response = await this.callGemini(text, "Tu nombre es Agustín Diaz y eres un tutor de nutrición certificado. Responde con base científica, sé claro y conciso.");
         
         thinking.remove();
         this.addMessage('ai', response);
