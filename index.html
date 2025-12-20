@@ -1,100 +1,287 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+<!-- ============================================
+     METAETIQUETAS ESENCIALES Y OPEN GRAPH
+     ============================================ -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Título principal para SEO y redes sociales -->
+<title>NutriLearn Academy: Curso Interactivo de Nutrición con IA</title>
+<!-- Descripción para resultados de búsqueda -->
+<meta name="description" content="Aprende nutrición con ciencia e IA. Calcula tus macros, analiza comidas y crea planes personalizados con nuestro tutor virtual. Tu evolución nutricional empieza aquí.">
+<meta name="keywords" content="nutrición, curso nutrición, aprender nutrición, macronutrientes, calcular calorías, TDEE, analizador de comida IA, plan alimenticio, salud, bienestar">
+<meta name="author" content="NutriLearn Academy">
+<meta name="copyright" content="NutriLearn Academy">
+
+<!-- ============================================
+     OPEN GRAPH (Facebook, LinkedIn, WhatsApp)
+     ============================================ -->
+<meta property="og:type" content="website">
+<!-- 🔗 URL CANÓNICA DE TU PÁGINA -->
+<meta property="og:url" content="https://gemini-flash.netlify.app/">
+<meta property="og:title" content="NutriLearn Academy: Domina la Nutrición con Ciencia e IA">
+<meta property="og:description" content="La primera academia interactiva que combina bioquímica, cálculo de energía y un asistente de IA para tu aprendizaje personalizado. ¡Transforma tu conocimiento en acción!">
+<!-- 🖼️ URL DE TU IMAGEN PARA COMPARTIR -->
+<meta property="og:image" content="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTr56Dr76An4sh_diFko9ElRRBMVPdjPXyLzUc6A5bvbg&s=10">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="es_ES">
+
+<!-- ============================================
+     TWITTER CARD (Apariencia en Twitter/X)
+     ============================================ -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@NutriLearn_Acad">
+<meta name="twitter:creator" content="@NutriLearn_Acad">
+<meta name="twitter:title" content="NutriLearn Academy: Aprende Nutrición con un Tutor de IA">
+<meta name="twitter:description" content="Calcula tus necesidades energéticas, analiza fotos de comida y genera menús al instante. Educación nutricional del siglo XXI.">
+<meta name="twitter:image" content="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTr56Dr76An4sh_diFko9ElRRBMVPdjPXyLzUc6A5bvbg&s=10">
+
+<!-- ============================================
+     FAVICON Y THEME COLOR
+     ============================================ -->
+<!-- (Opcional) Si subes favicons a tu dominio Netlify, usa estas líneas -->
+<!-- <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest"> -->
 <meta name="color-scheme" content="light dark">
-<title>NutriLearn Academy: Curso Interactivo & IA</title>
+<meta name="theme-color" content="#faf9f6" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#030712" media="(prefers-color-scheme: dark)">
+
+<!-- ============================================
+     ESTRUCTURA JSON-LD (SCHEMA.ORG)
+     (Lo más importante para SEO técnico)
+     ============================================ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://gemini-flash.netlify.app/#organization",
+      "name": "NutriLearn Academy",
+      "url": "https://gemini-flash.netlify.app/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTr56Dr76An4sh_diFko9ElRRBMVPdjPXyLzUc6A5bvbg&s=10",
+        "width": 1200,
+        "height": 630
+      },
+      "description": "Academia especializada en educación nutricional interactiva con inteligencia artificial.",
+      "sameAs": [
+        "https://www.facebook.com/NutriLearnAcademy",
+        "https://www.instagram.com/nutrilearn_academy/",
+        "https://twitter.com/NutriLearn_Acad"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://gemini-flash.netlify.app/#website",
+      "url": "https://gemini-flash.netlify.app/",
+      "name": "NutriLearn Academy",
+      "description": "Curso interactivo de nutrición con asistente de IA",
+      "publisher": {
+        "@id": "https://gemini-flash.netlify.app/#organization"
+      }
+    },
+    {
+      "@type": "Course",
+      "@id": "https://gemini-flash.netlify.app/#course",
+      "name": "Curso Interactivo de Nutrición con IA",
+      "description": "Un curso completo que enseña los fundamentos de la nutrición, el cálculo de macronutrientes y el balance energético, utilizando herramientas interactivas y un asistente de inteligencia artificial.",
+      "url": "https://gemini-flash.netlify.app/",
+      "provider": {
+        "@type": "Organization",
+        "@id": "https://gemini-flash.netlify.app/#organization"
+      },
+      "hasCourseInstance": {
+        "@type": "CourseInstance",
+        "courseMode": ["online", "interactive"],
+        "location": {
+          "@type": "VirtualLocation",
+          "url": "https://gemini-flash.netlify.app/"
+        }
+      },
+      "about": "Nutrición, Bioquímica de Alimentos, Metabolismo, Macronutrientes, Cálculo de Calorías, Planificación Alimenticia",
+      "educationalLevel": "beginner",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock",
+        "url": "https://gemini-flash.netlify.app/"
+      }
+    }
+  ]
+}
+</script>
+
 <script src="https://cdn.tailwindcss.com"></script>
+<script>
+    tailwind.config = {
+        darkMode: 'media',
+    }
+</script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+
+/* Variables CSS para temas - MODO OSCURO MÁXIMO */
+:root {
+  /* Colores para el tema claro (default) */
+  --color-bg-primary: #faf9f6;
+  --color-bg-secondary: #ffffff;
+  --color-bg-sidebar: #ffffff;
+  --color-text-primary: #334155;
+  --color-text-secondary: #64748b;
+  --color-border: #e2e8f0;
+  --color-glass-bg: rgba(255, 255, 255, 0.9);
+  --color-glass-border: rgba(255, 255, 255, 0.5);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Colores para el tema oscuro - VERSIÓN MÁXIMA OSCURIDAD */
+    --color-bg-primary: #030712;      /* Casi negro absoluto */
+    --color-bg-secondary: #0f172a;    /* Negro azulado muy oscuro */
+    --color-bg-sidebar: #0f172a;
+    --color-text-primary: #f8fafc;    /* Blanco muy puro para máximo contraste */
+    --color-text-secondary: #cbd5e1;
+    --color-border: #1e293b;          /* Bordes oscuros */
+    --color-glass-bg: rgba(15, 23, 42, 0.95);  /* Vidrio casi opaco */
+    --color-glass-border: rgba(30, 41, 59, 0.7);
+  }
+}
+
 body { 
-font-family: 'Plus Jakarta Sans', sans-serif; 
-background-color: #faf9f6;
-color: #334155; 
+  font-family: 'Plus Jakarta Sans', sans-serif; 
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary); 
 }
+
 .chart-container {
-position: relative;
-width: 100%;
-max-width: 600px;
-height: 300px;
-max-height: 400px;
-margin-left: auto;
-margin-right: auto;
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  height: 300px;
+  max-height: 400px;
+  margin-left: auto;
+  margin-right: auto;
 }
+
 @media (min-width: 768px) {
-.chart-container {
-height: 350px;
+  .chart-container {
+    height: 350px;
+  }
 }
-}
+
 .glass-panel {
-background: rgba(255, 255, 255, 0.9);
-backdrop-filter: blur(12px);
-border: 1px solid rgba(255, 255, 255, 0.5);
-box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  background: var(--color-glass-bg);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--color-glass-border);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
+
+/* Sombra más pronunciada en modo oscuro */
+@media (prefers-color-scheme: dark) {
+  .glass-panel {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+  }
+}
+
 .nav-link {
-position: relative;
-transition: all 0.3s ease;
+  position: relative;
+  transition: all 0.3s ease;
 }
+
 .nav-link.active {
-color: #059669;
-background-color: #ecfdf5;
+  color: #059669;
+  background-color: #ecfdf5;
 }
+
+/* Estilo activo para modo oscuro */
+@media (prefers-color-scheme: dark) {
+  .nav-link.active {
+    background-color: #064e3b;
+    color: #a7f3d0;
+  }
+}
+
 .nav-link.active::after {
-content: '';
-position: absolute;
-right: 0;
-top: 50%;
-transform: translateY(-50%);
-height: 20px;
-width: 4px;
-background-color: #059669;
-border-radius: 4px 0 0 4px;
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 20px;
+  width: 4px;
+  background-color: #059669;
+  border-radius: 4px 0 0 4px;
 }
+
+@media (prefers-color-scheme: dark) {
+  .nav-link.active::after {
+    background-color: #10b981;
+  }
+}
+
 .loader {
-display: inline-block;
-width: 20px;
-height: 20px;
-border: 3px solid rgba(16, 185, 129, 0.3);
-border-radius: 50%;
-border-top-color: #059669;
-animation: spin 1s ease-in-out infinite;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(16, 185, 129, 0.3);
+  border-radius: 50%;
+  border-top-color: #059669;
+  animation: spin 1s ease-in-out infinite;
 }
+
 @keyframes spin { to { transform: rotate(360deg); } }
 .fade-in { animation: fadeIn 0.4s ease-out forwards; }
 @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
 .chat-scroll::-webkit-scrollbar { width: 6px; }
-.chat-scroll::-webkit-scrollbar-track { background: #f1f5f9; }
-.chat-scroll::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 3px; }
-.chat-scroll::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+.chat-scroll::-webkit-scrollbar-track { background: var(--color-bg-secondary); }
+.chat-scroll::-webkit-scrollbar-thumb { background: #475569; border-radius: 3px; }
+.chat-scroll::-webkit-scrollbar-thumb:hover { background: #64748b; }
+
+/* Ajustar colores de gráficos para modo oscuro */
+@media (prefers-color-scheme: dark) {
+  #plateChart, #densityChart, #distributionChart {
+    filter: brightness(0.9) contrast(1.1);
+  }
+}
+
+#chat-input::-webkit-search-cancel-button {
+    display: none;
+}
 </style>
 </head>
 <body class="flex h-screen overflow-hidden">
-<aside class="hidden md:flex flex-col w-64 bg-white border-r border-slate-200 h-full z-10">
+<aside class="hidden md:flex flex-col w-64 bg-white dark:bg-gray-950 border-r border-slate-200 dark:border-gray-900 h-full z-10">
 <div class="p-6 flex items-center gap-3">
 <span class="text-3xl">🥑</span>
 <div>
-<h1 class="font-bold text-slate-800 text-lg leading-tight">NutriLearn</h1>
+<h1 class="font-bold text-slate-800 dark:text-gray-100 text-lg leading-tight">NutriLearn</h1>
 <p class="text-xs text-emerald-600 font-semibold tracking-wider">ACADEMY AI</p>
 </div>
 </div>
 <nav class="flex-1 px-4 space-y-2 mt-4">
-<button onclick="app.navigate('dashboard')" class="nav-link w-full flex items-center gap-3 px-4 py-3 text-slate-600 rounded-xl hover:bg-slate-50 font-medium transition-colors" data-view="dashboard">
+<button onclick="app.navigate('dashboard')" class="nav-link w-full flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-gray-300 rounded-xl hover:bg-slate-50 dark:hover:bg-gray-900 font-medium transition-colors" data-view="dashboard">
 <span>📊</span> Dashboard
 </button>
-<button onclick="app.navigate('macros')" class="nav-link w-full flex items-center gap-3 px-4 py-3 text-slate-600 rounded-xl hover:bg-slate-50 font-medium transition-colors" data-view="macros">
+<button onclick="app.navigate('macros')" class="nav-link w-full flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-gray-300 rounded-xl hover:bg-slate-50 dark:hover:bg-gray-900 font-medium transition-colors" data-view="macros">
 <span>🧬</span> Bio-Química
 </button>
-<button onclick="app.navigate('energy')" class="nav-link w-full flex items-center gap-3 px-4 py-3 text-slate-600 rounded-xl hover:bg-slate-50 font-medium transition-colors" data-view="energy">
+<button onclick="app.navigate('energy')" class="nav-link w-full flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-gray-300 rounded-xl hover:bg-slate-50 dark:hover:bg-gray-900 font-medium transition-colors" data-view="energy">
 <span>⚡</span> Lab de Energía
 </button>
-<button onclick="app.navigate('ai-suite')" class="nav-link w-full flex items-center gap-3 px-4 py-3 text-slate-600 rounded-xl hover:bg-slate-50 font-medium transition-colors" data-view="ai-suite">
+<button onclick="app.navigate('ai-suite')" class="nav-link w-full flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-gray-300 rounded-xl hover:bg-slate-50 dark:hover:bg-gray-900 font-medium transition-colors" data-view="ai-suite">
 <span>🤖</span> Asistente IA
 </button>
 </nav>
-<div class="p-6 border-t border-slate-100">
+<div class="p-6 border-t border-slate-100 dark:border-gray-900">
 <div class="bg-gradient-to-br from-emerald-500 to-teal-600 rounded-2xl p-4 text-white shadow-lg">
 <p class="text-xs font-medium opacity-90 mb-1">Estado de API</p>
 <div class="flex items-center gap-2">
@@ -104,65 +291,65 @@ animation: spin 1s ease-in-out infinite;
 </div>
 </div>
 </aside>
-<main class="flex-1 h-full overflow-y-auto relative bg-[#faf9f6]">
-<div class="md:hidden bg-white p-4 flex justify-between items-center border-b sticky top-0 z-20">
-<span class="font-bold text-lg text-slate-800">🥑 NutriLearn AI</span>
-<button onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" class="text-slate-600">☰</button>
+<main class="flex-1 h-full overflow-y-auto relative bg-[#faf9f6] dark:bg-gray-950">
+<div class="md:hidden bg-white dark:bg-gray-950 p-4 flex justify-between items-center border-b border-slate-200 dark:border-gray-900 sticky top-0 z-20">
+<span class="font-bold text-lg text-slate-800 dark:text-gray-100">🥑 NutriLearn AI</span>
+<button onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" class="text-slate-600 dark:text-gray-300">☰</button>
 </div>
-<div id="mobile-menu" class="hidden md:hidden absolute top-16 left-0 w-full bg-white border-b shadow-xl z-20 flex flex-col p-4 space-y-2">
-<button onclick="app.navigate('dashboard')" class="p-3 text-left font-medium text-slate-700 bg-slate-50 rounded-lg">Dashboard</button>
-<button onclick="app.navigate('macros')" class="p-3 text-left font-medium text-slate-700 bg-slate-50 rounded-lg">Bio-Química</button>
-<button onclick="app.navigate('energy')" class="p-3 text-left font-medium text-slate-700 bg-slate-50 rounded-lg">Lab de Energía</button>
-<button onclick="app.navigate('ai-suite')" class="p-3 text-left font-medium text-slate-700 bg-slate-50 rounded-lg">Asistente IA</button>
+<div id="mobile-menu" class="hidden md:hidden absolute top-16 left-0 w-full bg-white dark:bg-gray-950 border-b border-slate-200 dark:border-gray-900 shadow-xl z-20 flex flex-col p-4 space-y-2">
+<button onclick="app.navigate('dashboard')" class="p-3 text-left font-medium text-slate-700 dark:text-gray-200 bg-slate-50 dark:bg-gray-900 rounded-lg">Dashboard</button>
+<button onclick="app.navigate('macros')" class="p-3 text-left font-medium text-slate-700 dark:text-gray-200 bg-slate-50 dark:bg-gray-900 rounded-lg">Bio-Química</button>
+<button onclick="app.navigate('energy')" class="p-3 text-left font-medium text-slate-700 dark:text-gray-200 bg-slate-50 dark:bg-gray-900 rounded-lg">Lab de Energía</button>
+<button onclick="app.navigate('ai-suite')" class="p-3 text-left font-medium text-slate-700 dark:text-gray-200 bg-slate-50 dark:bg-gray-900 rounded-lg">Asistente IA</button>
 </div>
 <section id="view-dashboard" class="p-6 md:p-10 max-w-6xl mx-auto fade-in">
 <div class="mb-8">
-<h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Bienvenido a tu Evolución Nutricional</h2>
-<p class="text-lg text-slate-600 max-w-3xl leading-relaxed">
+<h2 class="text-3xl md:text-4xl font-bold text-slate-900 dark:text-gray-100 mb-4">Bienvenido a tu Evolución Nutricional</h2>
+<p class="text-lg text-slate-600 dark:text-gray-300 max-w-3xl leading-relaxed">
 La nutrición es la ciencia de cómo los alimentos nutren tu cuerpo. Esta plataforma interactiva combina datos visuales con inteligencia artificial para que pases de la teoría a la práctica. Empieza explorando tus métricas básicas o consulta a la IA.
 </p>
 </div>
 <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
 <div class="glass-panel p-6 rounded-2xl border-t-4 border-emerald-500 hover:-translate-y-1 transition-transform cursor-pointer" onclick="app.navigate('macros')">
 <div class="flex justify-between items-start mb-4">
-<div class="p-3 bg-emerald-100 rounded-xl text-2xl">🧬</div>
-<span class="text-xs font-bold bg-slate-100 text-slate-500 px-2 py-1 rounded">Teoría</span>
+<div class="p-3 bg-emerald-100 dark:bg-emerald-900/40 rounded-xl text-2xl">🧬</div>
+<span class="text-xs font-bold bg-slate-100 dark:bg-gray-900 text-slate-500 dark:text-gray-400 px-2 py-1 rounded">Teoría</span>
 </div>
-<h3 class="text-xl font-bold text-slate-800 mb-2">Macronutrientes</h3>
-<p class="text-sm text-slate-500">Aprende la diferencia entre combustible (carbos), estructura (proteína) y reserva (grasas).</p>
+<h3 class="text-xl font-bold text-slate-800 dark:text-gray-100 mb-2">Macronutrientes</h3>
+<p class="text-sm text-slate-500 dark:text-gray-400">Aprende la diferencia entre combustible (carbos), estructura (proteína) y reserva (grasas).</p>
 </div>
 <div class="glass-panel p-6 rounded-2xl border-t-4 border-amber-500 hover:-translate-y-1 transition-transform cursor-pointer" onclick="app.navigate('energy')">
 <div class="flex justify-between items-start mb-4">
-<div class="p-3 bg-amber-100 rounded-xl text-2xl">⚡</div>
-<span class="text-xs font-bold bg-slate-100 text-slate-500 px-2 py-1 rounded">Cálculo</span>
+<div class="p-3 bg-amber-100 dark:bg-amber-900/40 rounded-xl text-2xl">⚡</div>
+<span class="text-xs font-bold bg-slate-100 dark:bg-gray-900 text-slate-500 dark:text-gray-400 px-2 py-1 rounded">Cálculo</span>
 </div>
-<h3 class="text-xl font-bold text-slate-800 mb-2">Balance Energético</h3>
-<p class="text-sm text-slate-500">Calcula tu TDEE (Gasto Energético Total Diario) y personaliza tus objetivos.</p>
+<h3 class="text-xl font-bold text-slate-800 dark:text-gray-100 mb-2">Balance Energético</h3>
+<p class="text-sm text-slate-500 dark:text-gray-400">Calcula tu TDEE (Gasto Energético Total Diario) y personaliza tus objetivos.</p>
 </div>
 <div class="glass-panel p-6 rounded-2xl border-t-4 border-indigo-500 hover:-translate-y-1 transition-transform cursor-pointer" onclick="app.navigate('ai-suite')">
 <div class="flex justify-between items-start mb-4">
-<div class="p-3 bg-indigo-100 rounded-xl text-2xl">🤖</div>
-<span class="text-xs font-bold bg-indigo-100 text-indigo-600 px-2 py-1 rounded">Interactivo</span>
+<div class="p-3 bg-indigo-100 dark:bg-indigo-900/40 rounded-xl text-2xl">👽</div>
+<span class="text-xs font-bold bg-indigo-100 dark:bg-indigo-900/40 text-indigo-600 dark:text-indigo-300 px-2 py-1 rounded">Interactivo</span>
 </div>
-<h3 class="text-xl font-bold text-slate-800 mb-2">Consultor IA</h3>
-<p class="text-sm text-slate-500">Analiza fotos de platos (descripción) o pide menús personalizados al instante.</p>
+<h3 class="text-xl font-bold text-slate-800 dark:text-gray-100 mb-2">Consultor IA</h3>
+<p class="text-sm text-slate-500 dark:text-gray-400">Analiza fotos de platos (descripción) o pide menús personalizados al instante.</p>
 </div>
 </div>
 <div class="glass-panel p-8 rounded-3xl">
 <div class="flex flex-col md:flex-row items-center gap-8">
 <div class="flex-1">
-<h3 class="text-2xl font-bold text-slate-800 mb-4">El Plato Saludable Ideal</h3>
-<p class="text-slate-600 mb-6">
+<h3 class="text-2xl font-bold text-slate-800 dark:text-gray-100 mb-4">El Plato Saludable Ideal</h3>
+<p class="text-slate-600 dark:text-gray-300 mb-6">
 Más allá de contar calorías, la proporción visual es clave. La ciencia moderna sugiere que la mitad de tu ingesta debe provenir de vegetales y frutas para garantizar el aporte de micronutrientes y fibra.
 </p>
 <ul class="space-y-3">
-<li class="flex items-center gap-3 text-sm text-slate-700">
+<li class="flex items-center gap-3 text-sm text-slate-700 dark:text-gray-300">
 <span class="w-3 h-3 rounded-full bg-emerald-500"></span> 50% Vegetales y Frutas (Volumen y Fibra)
 </li>
-<li class="flex items-center gap-3 text-sm text-slate-700">
+<li class="flex items-center gap-3 text-sm text-slate-700 dark:text-gray-300">
 <span class="w-3 h-3 rounded-full bg-amber-500"></span> 25% Granos Integrales (Energía Sostenida)
 </li>
-<li class="flex items-center gap-3 text-sm text-slate-700">
+<li class="flex items-center gap-3 text-sm text-slate-700 dark:text-gray-300">
 <span class="w-3 h-3 rounded-full bg-red-500"></span> 25% Proteína Magra (Reparación)
 </li>
 </ul>
@@ -178,16 +365,16 @@ Más allá de contar calorías, la proporción visual es clave. La ciencia moder
 <section id="view-macros" class="p-6 md:p-10 max-w-6xl mx-auto hidden fade-in">
 <div class="mb-10">
 <span class="text-emerald-600 font-bold tracking-wider text-sm uppercase">Módulo 1</span>
-<h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">La Química de los Alimentos</h2>
-<p class="text-lg text-slate-600 leading-relaxed">
+<h2 class="text-3xl md:text-4xl font-bold text-slate-900 dark:text-gray-100 mb-4">La Química de los Alimentos</h2>
+<p class="text-lg text-slate-600 dark:text-gray-300 leading-relaxed">
 No todas las calorías son iguales. Entender la densidad calórica y la función metabólica de cada macronutriente es esencial para tomar decisiones informadas. Aquí visualizamos cómo se compara la energía que aporta cada gramo.
 </p>
 </div>
 <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
 <div class="glass-panel p-6 rounded-2xl">
 <div class="mb-6">
-<h3 class="text-xl font-bold text-slate-800">Densidad Calórica (kcal/gramo)</h3>
-<p class="text-sm text-slate-500">Observa cómo las grasas contienen más del doble de energía por gramo que las proteínas o carbohidratos.</p>
+<h3 class="text-xl font-bold text-slate-800 dark:text-gray-100">Densidad Calórica (kcal/gramo)</h3>
+<p class="text-sm text-slate-500 dark:text-gray-400">Observa cómo las grasas contienen más del doble de energía por gramo que las proteínas o carbohidratos.</p>
 </div>
 <div class="chart-container">
 <canvas id="densityChart"></canvas>
@@ -195,18 +382,18 @@ No todas las calorías son iguales. Entender la densidad calórica y la función
 </div>
 <div class="glass-panel p-6 rounded-2xl flex flex-col">
 <div class="mb-6">
-<h3 class="text-xl font-bold text-slate-800">Distribución de Macronutrientes</h3>
-<p class="text-sm text-slate-500 mb-4">Selecciona un perfil para ver cómo cambia la recomendación de ingesta.</p>
-<div class="flex gap-2 p-1 bg-slate-100 rounded-lg inline-flex">
-<button onclick="app.updateDistribution('standard')" class="px-4 py-2 text-sm rounded-md font-medium transition-all bg-white shadow-sm text-slate-800" id="btn-standard">Estándar</button>
-<button onclick="app.updateDistribution('athlete')" class="px-4 py-2 text-sm rounded-md font-medium transition-all text-slate-500 hover:text-slate-700" id="btn-athlete">Atleta</button>
-<button onclick="app.updateDistribution('keto')" class="px-4 py-2 text-sm rounded-md font-medium transition-all text-slate-500 hover:text-slate-700" id="btn-keto">Low Carb</button>
+<h3 class="text-xl font-bold text-slate-800 dark:text-gray-100">Distribución de Macronutrientes</h3>
+<p class="text-sm text-slate-500 dark:text-gray-400 mb-4">Selecciona un perfil para ver cómo cambia la recomendación de ingesta.</p>
+<div class="flex gap-2 p-1 bg-slate-100 dark:bg-gray-900 rounded-lg inline-flex">
+<button onclick="app.updateDistribution('standard')" class="px-4 py-2 text-sm rounded-md font-medium transition-all bg-white dark:bg-gray-900 shadow-sm text-slate-800 dark:text-gray-200 border border-slate-200 dark:border-gray-800" id="btn-standard">Estándar</button>
+<button onclick="app.updateDistribution('athlete')" class="px-4 py-2 text-sm rounded-md font-medium transition-all text-slate-500 dark:text-gray-400 hover:text-slate-700 dark:hover:text-gray-300 hover:bg-slate-100 dark:hover:bg-gray-800" id="btn-athlete">Atleta</button>
+<button onclick="app.updateDistribution('keto')" class="px-4 py-2 text-sm rounded-md font-medium transition-all text-slate-500 dark:text-gray-400 hover:text-slate-700 dark:hover:text-gray-300 hover:bg-slate-100 dark:hover:bg-gray-800" id="btn-keto">Low Carb</button>
 </div>
 </div>
 <div class="chart-container flex-grow">
 <canvas id="distributionChart"></canvas>
 </div>
-<div id="dist-text" class="mt-4 p-4 bg-emerald-50 rounded-xl text-sm text-emerald-800 border border-emerald-100">
+<div id="dist-text" class="mt-4 p-4 bg-emerald-50 dark:bg-emerald-900/30 rounded-xl text-sm text-emerald-800 dark:text-emerald-200 border border-emerald-100 dark:border-emerald-900/50">
 Equilibrio recomendado para la población general, priorizando salud a largo plazo.
 </div>
 </div>
@@ -215,74 +402,74 @@ Equilibrio recomendado para la población general, priorizando salud a largo pla
 <section id="view-energy" class="p-6 md:p-10 max-w-6xl mx-auto hidden fade-in">
 <div class="mb-10">
 <span class="text-amber-500 font-bold tracking-wider text-sm uppercase">Módulo 2</span>
-<h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Laboratorio de Energía</h2>
-<p class="text-lg text-slate-600 leading-relaxed">
+<h2 class="text-3xl md:text-4xl font-bold text-slate-900 dark:text-gray-100 mb-4">Laboratorio de Energía</h2>
+<p class="text-lg text-slate-600 dark:text-gray-300 leading-relaxed">
 Tu cuerpo es un motor biológico. Utiliza esta herramienta para estimar tu Tasa Metabólica Basal (lo que quemas en reposo) y tu Gasto Total Diario (TDEE). Estos números son el punto de partida para cualquier plan nutricional.
 </p>
 </div>
 <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
 <div class="lg:col-span-5 glass-panel p-8 rounded-3xl h-fit">
-<h3 class="font-bold text-xl text-slate-800 mb-6">Tus Parámetros</h3>
+<h3 class="font-bold text-xl text-slate-800 dark:text-gray-100 mb-6">Tus Parámetros</h3>
 <div class="space-y-5">
 <div class="grid grid-cols-2 gap-4">
 <div>
-<label class="block text-xs font-bold text-slate-500 uppercase mb-2">Género</label>
-<select id="calc-gender" class="w-full p-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-amber-400 outline-none">
+<label class="block text-xs font-bold text-slate-500 dark:text-gray-400 uppercase mb-2">Género</label>
+<select id="calc-gender" class="w-full p-3 bg-slate-50 dark:bg-gray-900 border border-slate-200 dark:border-gray-800 rounded-xl focus:ring-2 focus:ring-amber-400 outline-none text-slate-700 dark:text-gray-200">
 <option value="male">Hombre</option>
 <option value="female">Mujer</option>
 </select>
 </div>
 <div>
-<label class="block text-xs font-bold text-slate-500 uppercase mb-2">Edad</label>
-<input type="number" id="calc-age" value="30" class="w-full p-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-amber-400 outline-none">
+<label class="block text-xs font-bold text-slate-500 dark:text-gray-400 uppercase mb-2">Edad</label>
+<input type="number" id="calc-age" value="30" class="w-full p-3 bg-slate-50 dark:bg-gray-900 border border-slate-200 dark:border-gray-800 rounded-xl focus:ring-2 focus:ring-amber-400 outline-none text-slate-700 dark:text-gray-200">
 </div>
 </div>
 <div class="grid grid-cols-2 gap-4">
 <div>
-<label class="block text-xs font-bold text-slate-500 uppercase mb-2">Peso (kg)</label>
-<input type="number" id="calc-weight" value="70" class="w-full p-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-amber-400 outline-none">
+<label class="block text-xs font-bold text-slate-500 dark:text-gray-400 uppercase mb-2">Peso (kg)</label>
+<input type="number" id="calc-weight" value="70" class="w-full p-3 bg-slate-50 dark:bg-gray-900 border border-slate-200 dark:border-gray-800 rounded-xl focus:ring-2 focus:ring-amber-400 outline-none text-slate-700 dark:text-gray-200">
 </div>
 <div>
-<label class="block text-xs font-bold text-slate-500 uppercase mb-2">Altura (cm)</label>
-<input type="number" id="calc-height" value="175" class="w-full p-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-amber-400 outline-none">
+<label class="block text-xs font-bold text-slate-500 dark:text-gray-400 uppercase mb-2">Altura (cm)</label>
+<input type="number" id="calc-height" value="175" class="w-full p-3 bg-slate-50 dark:bg-gray-900 border border-slate-200 dark:border-gray-800 rounded-xl focus:ring-2 focus:ring-amber-400 outline-none text-slate-700 dark:text-gray-200">
 </div>
 </div>
 <div>
-<label class="block text-xs font-bold text-slate-500 uppercase mb-2">Actividad Física</label>
-<select id="calc-activity" class="w-full p-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-amber-400 outline-none">
+<label class="block text-xs font-bold text-slate-500 dark:text-gray-400 uppercase mb-2">Actividad Física</label>
+<select id="calc-activity" class="w-full p-3 bg-slate-50 dark:bg-gray-900 border border-slate-200 dark:border-gray-800 rounded-xl focus:ring-2 focus:ring-amber-400 outline-none text-slate-700 dark:text-gray-200">
 <option value="1.2">Sedentario (Oficina, poco movimiento)</option>
 <option value="1.375">Ligera (Ejercicio 1-3 días/sem)</option>
 <option value="1.55">Moderada (Ejercicio 3-5 días/sem)</option>
 <option value="1.725">Intensa (Ejercicio 6-7 días/sem)</option>
 </select>
 </div>
-<button onclick="app.calculateTDEE()" class="w-full py-4 bg-amber-500 hover:bg-amber-600 text-white font-bold rounded-xl shadow-lg shadow-amber-200 transition-all transform active:scale-95">
+<button onclick="app.calculateTDEE()" class="w-full py-4 bg-amber-500 hover:bg-amber-600 text-white font-bold rounded-xl shadow-lg shadow-amber-200/50 dark:shadow-amber-200/20 transition-all transform active:scale-95">
 Calcular Requerimientos
 </button>
 </div>
 </div>
 <div class="lg:col-span-7 space-y-6">
-<div class="bg-slate-900 text-white p-8 rounded-3xl shadow-xl relative overflow-hidden">
+<div class="bg-gray-950 text-white p-8 rounded-3xl shadow-xl relative overflow-hidden border border-gray-900">
 <div class="absolute right-0 top-0 opacity-10 text-9xl transform translate-x-10 -translate-y-10">⚡</div>
 <div class="relative z-10">
-<p class="text-slate-400 font-bold uppercase tracking-widest text-xs mb-2">Gasto Energético Diario (TDEE)</p>
+<p class="text-gray-400 font-bold uppercase tracking-widest text-xs mb-2">Gasto Energético Diario (TDEE)</p>
 <div class="flex items-baseline gap-2">
 <span id="result-tdee" class="text-6xl font-extrabold text-amber-400">0</span>
-<span class="text-xl text-slate-400">kcal/día</span>
+<span class="text-xl text-gray-400">kcal/día</span>
 </div>
-<p class="mt-4 text-slate-300 max-w-md">Estas son las calorías que necesitas para mantener tu peso actual considerando tu actividad.</p>
+<p class="mt-4 text-gray-300 max-w-md">Estas son las calorías que necesitas para mantener tu peso actual considerando tu actividad.</p>
 </div>
 </div>
 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
 <div class="glass-panel p-6 rounded-2xl border-l-4 border-emerald-500">
-<h4 class="font-bold text-slate-700 mb-1">Déficit (Pérdida de Grasa)</h4>
-<p class="text-3xl font-bold text-emerald-600" id="result-cut">0 <span class="text-sm font-normal text-slate-500">kcal</span></p>
-<p class="text-xs text-slate-400 mt-2">Déficit sostenible del 20%</p>
+<h4 class="font-bold text-slate-700 dark:text-gray-200 mb-1">Déficit (Pérdida de Grasa)</h4>
+<p class="text-3xl font-bold text-emerald-600" id="result-cut">0 <span class="text-sm font-normal text-slate-500 dark:text-gray-400">kcal</span></p>
+<p class="text-xs text-gray-500 dark:text-gray-400 mt-2">Déficit sostenible del 20%</p>
 </div>
 <div class="glass-panel p-6 rounded-2xl border-l-4 border-blue-500">
-<h4 class="font-bold text-slate-700 mb-1">Superávit (Ganancia Muscular)</h4>
-<p class="text-3xl font-bold text-blue-600" id="result-bulk">0 <span class="text-sm font-normal text-slate-500">kcal</span></p>
-<p class="text-xs text-slate-400 mt-2">Excedente controlado del 10%</p>
+<h4 class="font-bold text-slate-700 dark:text-gray-200 mb-1">Superávit (Ganancia Muscular)</h4>
+<p class="text-3xl font-bold text-blue-600" id="result-bulk">0 <span class="text-sm font-normal text-slate-500 dark:text-gray-400">kcal</span></p>
+<p class="text-xs text-gray-500 dark:text-gray-400 mt-2">Excedente controlado del 10%</p>
 </div>
 </div>
 </div>
@@ -292,37 +479,37 @@ Calcular Requerimientos
 <div class="mb-10 flex flex-col md:flex-row md:items-center justify-between gap-4">
 <div>
 <span class="text-indigo-500 font-bold tracking-wider text-sm uppercase">Módulo 3</span>
-<h2 class="text-3xl md:text-4xl font-bold text-slate-900">Asistente Nutricional IA</h2>
+<h2 class="text-3xl md:text-4xl font-bold text-slate-900 dark:text-gray-100">Asistente Nutricional IA</h2>
 </div>
-<div class="flex items-center gap-2 px-4 py-2 bg-indigo-50 text-indigo-700 rounded-full text-sm font-bold">
+<div class="flex items-center gap-2 px-4 py-2 bg-indigo-50 dark:bg-indigo-900/40 text-indigo-700 dark:text-indigo-300 rounded-full text-sm font-bold">
 <span>✨ Powered by Gemini 2.5 Flash</span>
 </div>
 </div>
-<p class="text-lg text-slate-600 leading-relaxed mb-8">
+<p class="text-lg text-slate-600 dark:text-gray-300 leading-relaxed mb-8">
 Aplica lo aprendido. Usa la Inteligencia Artificial para analizar comidas reales, resolver dudas complejas o generar planes de alimentación adaptados a tus cálculos del módulo anterior.
 </p>
 <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
 <div class="lg:col-span-4 space-y-6">
-<div class="glass-panel p-6 rounded-3xl border border-indigo-100">
-<h3 class="font-bold text-lg text-slate-800 mb-4 flex items-center gap-2">
+<div class="glass-panel p-6 rounded-3xl border border-indigo-100 dark:border-indigo-900/40">
+<h3 class="font-bold text-lg text-slate-800 dark:text-gray-100 mb-4 flex items-center gap-2">
 <span>📸</span> Analizar Comida
 </h3>
-<textarea id="ai-food-input" placeholder="Ej: Dos tostadas con aguacate, un huevo revuelto y café negro..." class="w-full h-32 p-4 bg-white border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-400 outline-none resize-none text-sm transition-shadow"></textarea>
+<textarea id="ai-food-input" placeholder="Ej: Dos tostadas con aguacate, un huevo revuelto y café negro..." class="w-full h-32 p-4 bg-white dark:bg-gray-900 border border-slate-200 dark:border-gray-800 rounded-xl focus:ring-2 focus:ring-indigo-400 outline-none resize-none text-sm transition-shadow text-slate-700 dark:text-gray-200 placeholder-slate-400 dark:placeholder-gray-500"></textarea>
 <button onclick="app.analyzeFood()" id="btn-analyze" class="w-full mt-4 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-xl transition-colors flex justify-center items-center gap-2">
 <span>✨</span> Analizar Nutrientes
 </button>
 </div>
-<div class="glass-panel p-6 rounded-3xl border border-emerald-100">
-<h3 class="font-bold text-lg text-slate-800 mb-4 flex items-center gap-2">
+<div class="glass-panel p-6 rounded-3xl border border-emerald-100 dark:border-emerald-900/40">
+<h3 class="font-bold text-lg text-slate-800 dark:text-gray-100 mb-4 flex items-center gap-2">
 <span>📅</span> Planificador Rápido
 </h3>
 <div class="space-y-3">
-<select id="ai-plan-goal" class="w-full p-3 bg-white border border-slate-200 rounded-xl text-sm outline-none">
+<select id="ai-plan-goal" class="w-full p-3 bg-white dark:bg-gray-900 border border-slate-200 dark:border-gray-800 rounded-xl text-sm outline-none text-slate-700 dark:text-gray-200">
 <option value="pérdida de grasa">Pérdida de Grasa</option>
 <option value="ganancia muscular">Ganancia Muscular</option>
 <option value="energía y vitalidad">Energía y Vitalidad</option>
 </select>
-<input type="text" id="ai-plan-cal" placeholder="Calorías objetivo (Opcional)" class="w-full p-3 bg-white border border-slate-200 rounded-xl text-sm outline-none">
+<input type="text" id="ai-plan-cal" placeholder="Calorías objetivo (Opcional)" class="w-full p-3 bg-white dark:bg-gray-900 border border-slate-200 dark:border-gray-800 rounded-xl text-sm outline-none text-slate-700 dark:text-gray-200 placeholder-slate-400 dark:placeholder-gray-500">
 </div>
 <button onclick="app.generatePlan()" id="btn-plan" class="w-full mt-4 py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl transition-colors flex justify-center items-center gap-2">
 <span>✨</span> Generar Menú
@@ -330,23 +517,24 @@ Aplica lo aprendido. Usa la Inteligencia Artificial para analizar comidas reales
 </div>
 </div>
 <div class="lg:col-span-8 flex flex-col h-[600px] glass-panel rounded-3xl overflow-hidden shadow-2xl border-0">
-<div class="bg-slate-800 p-4 flex justify-between items-center">
-<span class="text-slate-100 font-bold flex items-center gap-2"><span class="w-2 h-2 bg-emerald-400 rounded-full"></span> Tutor IA En Línea</span>
-<button onclick="app.clearChat()" class="text-xs text-slate-400 hover:text-white uppercase font-bold tracking-wider">Limpiar</button>
+<div class="bg-gray-950 p-4 flex justify-between items-center border-b border-gray-900">
+<span class="text-gray-100 font-bold flex items-center gap-2"><span class="w-2 h-2 bg-emerald-400 rounded-full"></span>Agustín Díaz</span>
+<button onclick="app.clearChat()" class="text-xs text-gray-400 hover:text-white uppercase font-bold tracking-wider">Limpiar</button>
 </div>
-<div id="chat-container" class="flex-1 overflow-y-auto p-6 space-y-6 bg-slate-50 chat-scroll">
+<div id="chat-container" class="flex-1 overflow-y-auto p-6 space-y-6 bg-slate-50 dark:bg-gray-950 chat-scroll">
 <div class="flex gap-4">
-<div class="w-8 h-8 rounded-full bg-indigo-100 flex items-center justify-center text-lg flex-shrink-0"></div>
-<div class="bg-white p-4 rounded-2xl rounded-tl-none shadow-sm text-slate-700 text-sm border border-slate-100">
+<div class="w-8 h-8 rounded-full bg-indigo-100 dark:bg-indigo-900 flex items-center justify-center text-lg flex-shrink-0">👽</div>
+<div class="bg-white dark:bg-gray-900 p-4 rounded-2xl rounded-tl-none shadow-sm text-slate-700 dark:text-gray-200 text-base border border-slate-100 dark:border-gray-800">
+<p>¡Hola! Soy Agustín Diaz, tu maestro de nutrición. Puedo analizar los ingredientes de tus comidas, explicarte conceptos complejos o crear un plan de alimentación basado en tus macros. ¿Por dónde empezamos?</p>
 </div>
 </div>
 </div>
-<div class="p-4 bg-white border-t border-slate-100">
+<div class="p-4 bg-white dark:bg-gray-950 border-t border-slate-100 dark:border-gray-900">
 <div class="relative flex items-center">
-<input type="text" id="chat-input" placeholder="Haz una pregunta general (Ej: ¿Por qué es importante la fibra?)..." class="w-full bg-slate-100 border-none rounded-2xl py-4 pl-5 pr-14 focus:ring-2 focus:ring-indigo-500 outline-none text-slate-700 placeholder-slate-400">
-<button onclick="app.sendChat()" class="absolute right-2 p-2 bg-indigo-600 text-white rounded-xl hover:bg-indigo-700 transition-transform active:scale-95">
-➤
-</button>
+    <input type="search" inputmode="text" id="chat-input" placeholder="Pregunta sobre nutrición" class="w-full bg-slate-100 border-none rounded-2xl py-4 pl-5 pr-14 focus:ring-2 focus:ring-indigo-500 outline-none text-slate-700 placeholder-slate-400">
+    <button onclick="app.sendChat()" class="absolute right-2 p-2 bg-indigo-600 text-white rounded-xl hover:bg-indigo-700 transition-transform active:scale-95">
+        ➤
+    </button>
 </div>
 </div>
 </div>
@@ -354,9 +542,6 @@ Aplica lo aprendido. Usa la Inteligencia Artificial para analizar comidas reales
 </section>
 </main>
 <script>
-// 🔒 IMPORTANTE: Reemplaza 'TU_API_KEY_AQUI' con tu API Key real
-// O mejor aún: usa variables de entorno en Netlify
-const apiKey = "TU_API_KEY_AQUI"; // ⚠️ Cambia esto por tu API Key real
 
 const app = {
     state: {
@@ -420,7 +605,14 @@ const app = {
             options: {
                 responsive: true,
                 maintainAspectRatio: false,
-                plugins: { legend: { position: 'bottom' } }
+                plugins: { 
+                    legend: { 
+                        position: 'bottom',
+                        labels: {
+                            color: '#334155' // Color para modo claro
+                        }
+                    }
+                }
             }
         });
         
@@ -440,8 +632,24 @@ const app = {
             options: {
                 responsive: true,
                 maintainAspectRatio: false,
-                plugins: { legend: { display: false } },
-                scales: { y: { beginAtZero: true } }
+                plugins: { 
+                    legend: { 
+                        display: false 
+                    }
+                },
+                scales: { 
+                    y: { 
+                        beginAtZero: true,
+                        ticks: {
+                            color: '#334155' // Color para modo claro
+                        }
+                    },
+                    x: {
+                        ticks: {
+                            color: '#334155'
+                        }
+                    }
+                }
             }
         });
         
@@ -463,11 +671,46 @@ const app = {
                 maintainAspectRatio: false,
                 cutout: '75%',
                 plugins: {
-                    legend: { position: 'right' },
-                    title: { display: true, text: 'Perfil Estándar' }
+                    legend: { 
+                        position: 'right',
+                        labels: {
+                            color: '#334155'
+                        }
+                    },
+                    title: { 
+                        display: true, 
+                        text: 'Perfil Estándar',
+                        color: '#334155'
+                    }
                 }
             }
         });
+        
+        // Actualizar colores de gráficos para modo oscuro
+        const updateChartColors = () => {
+            const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            const textColor = isDark ? '#f8fafc' : '#334155';
+            
+            // Actualizar gráfico de plato
+            this.charts.plate.options.plugins.legend.labels.color = textColor;
+            this.charts.plate.update();
+            
+            // Actualizar gráfico de densidad
+            this.charts.density.options.scales.y.ticks.color = textColor;
+            this.charts.density.options.scales.x.ticks.color = textColor;
+            this.charts.density.update();
+            
+            // Actualizar gráfico de distribución
+            this.charts.dist.options.plugins.legend.labels.color = textColor;
+            this.charts.dist.options.plugins.title.color = textColor;
+            this.charts.dist.update();
+        };
+        
+        // Escuchar cambios en el tema
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', updateChartColors);
+        
+        // Aplicar colores iniciales
+        updateChartColors();
     },
     
     updateDistribution: function(profile) {
@@ -475,8 +718,8 @@ const app = {
         ['standard', 'athlete', 'keto'].forEach(id => {
             const btn = document.getElementById(`btn-${id}`);
             btn.className = (id === profile)
-                ? "px-4 py-2 text-sm rounded-md font-medium transition-all bg-white shadow-sm text-slate-800 border border-slate-200"
-                : "px-4 py-2 text-sm rounded-md font-medium transition-all text-slate-500 hover:text-slate-700 hover:bg-slate-100";
+                ? "px-4 py-2 text-sm rounded-md font-medium transition-all bg-white dark:bg-gray-900 shadow-sm text-slate-800 dark:text-gray-200 border border-slate-200 dark:border-gray-800"
+                : "px-4 py-2 text-sm rounded-md font-medium transition-all text-slate-500 dark:text-gray-400 hover:text-slate-700 dark:hover:text-gray-300 hover:bg-slate-100 dark:hover:bg-gray-800";
         });
         
         let data, text, title;
@@ -515,8 +758,8 @@ const app = {
         
         this.state.tdee = tdee;
         document.getElementById('result-tdee').innerText = tdee;
-        document.getElementById('result-cut').innerHTML = `${Math.round(tdee * 0.8)} <span class="text-sm text-slate-500">kcal</span>`;
-        document.getElementById('result-bulk').innerHTML = `${Math.round(tdee * 1.1)} <span class="text-sm text-slate-500">kcal</span>`;
+        document.getElementById('result-cut').innerHTML = `${Math.round(tdee * 0.8)} <span class="text-sm text-slate-500 dark:text-gray-400">kcal</span>`;
+        document.getElementById('result-bulk').innerHTML = `${Math.round(tdee * 1.1)} <span class="text-sm text-slate-500 dark:text-gray-400">kcal</span>`;
     },
     
     // REEMPLAZA la función 'callGemini' actual por esta:
@@ -550,11 +793,11 @@ callGemini: async function(prompt, systemInstruction = "Tu nombre es Agustín D�
         const wrapper = document.createElement('div');
         wrapper.className = `flex gap-4 ${isUser ? 'justify-end' : ''}`;
         
-        const avatar = isUser ? '' : '<div class="w-8 h-8 rounded-full bg-indigo-100 flex items-center justify-center">🤖</div>';
+        const avatar = isUser ? '' : '<div class="w-8 h-8 rounded-full bg-indigo-100 dark:bg-indigo-900 flex items-center justify-center text-lg flex-shrink-0">👽</div>';
         const bubble = document.createElement('div');
         bubble.className = isUser
             ? 'bg-indigo-600 text-white p-4 rounded-2xl rounded-tr-none'
-            : 'bg-white p-4 rounded-2xl rounded-tl-none border';
+            : 'bg-white dark:bg-gray-900 p-4 rounded-2xl rounded-tl-none border border-slate-100 dark:border-gray-800';
         bubble.innerHTML = text.replace(/\n/g, '<br>');
         
         wrapper.innerHTML = isUser ? bubble.outerHTML : avatar + bubble.outerHTML;
@@ -630,12 +873,12 @@ callGemini: async function(prompt, systemInstruction = "Tu nombre es Agustín D�
         const thinking = document.createElement('div');
         thinking.id = 'thinking-bubble';
         thinking.className = 'flex gap-4';
-        thinking.innerHTML = '<div class="w-8 h-8 bg-indigo-100 rounded-full flex items-center justify-center">🤖</div><div class="bg-white p-4 rounded-2xl border"><div class="loader"></div></div>';
+        thinking.innerHTML = '<div class="w-8 h-8 bg-indigo-100 dark:bg-indigo-900 rounded-full flex items-center justify-center"></div><div class="bg-white dark:bg-gray-900 p-4 rounded-2xl border border-slate-100 dark:border-gray-800"><div class="loader"></div></div>';
         
         container.appendChild(thinking);
         container.scrollTop = container.scrollHeight;
         
-        const response = await this.callGemini(text, "Tu nombre es Agustín Diaz y eres un tutor de nutrición certificado. Responde con base científica, sé claro y conciso.");
+        const response = await this.callGemini(text, "Tu nombre es Agustín Diaz y eres mi maestro de nutrición certificado. Responde con base científica, sé claro y conciso. Estas únicamente para hablar de nutrición");
         
         thinking.remove();
         this.addMessage('ai', response);
