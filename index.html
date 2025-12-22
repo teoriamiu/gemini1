@@ -116,8 +116,12 @@
 </script>
 
 <script src="https://cdn.tailwindcss.com"></script>
+<script>
+    tailwind.config = {
+        darkMode: 'media',
+    }
+</script>
 
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
 
@@ -152,22 +156,6 @@ body {
   font-family: 'Plus Jakarta Sans', sans-serif; 
   background-color: var(--color-bg-primary);
   color: var(--color-text-primary); 
-}
-
-.chart-container {
-  position: relative;
-  width: 100%;
-  max-width: 600px;
-  height: 300px;
-  max-height: 400px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-@media (min-width: 768px) {
-  .chart-container {
-    height: 350px;
-  }
 }
 
 .glass-panel {
@@ -239,13 +227,6 @@ body {
 .chat-scroll::-webkit-scrollbar-thumb { background: #475569; border-radius: 3px; }
 .chat-scroll::-webkit-scrollbar-thumb:hover { background: #64748b; }
 
-/* Ajustar colores de gráficos para modo oscuro */
-@media (prefers-color-scheme: dark) {
-  #plateChart, #densityChart, #distributionChart {
-    filter: brightness(0.9) contrast(1.1);
-  }
-}
-
 #chat-input::-webkit-search-cancel-button {
     display: none;
 }
@@ -308,53 +289,22 @@ La nutrición es la ciencia de cómo los alimentos nutren tu cuerpo. Esta plataf
 <div class="p-3 bg-emerald-100 dark:bg-emerald-900/40 rounded-xl text-2xl">🧬</div>
 <span class="text-xs font-bold bg-slate-100 dark:bg-gray-900 text-slate-500 dark:text-gray-400 px-2 py-1 rounded">Teoría</span>
 </div>
-<h3 class="text-xl font-bold text-slate-800 dark:text-gray-100 mb-2">Macronutrientes</h3>
-<p class="text-sm text-slate-500 dark:text-gray-400">Aprende la diferencia entre combustible (carbos), estructura (proteína) y reserva (grasas).</p>
 </div>
 <div class="glass-panel p-6 rounded-2xl border-t-4 border-amber-500 hover:-translate-y-1 transition-transform cursor-pointer" onclick="app.navigate('energy')">
 <div class="flex justify-between items-start mb-4">
 <div class="p-3 bg-amber-100 dark:bg-amber-900/40 rounded-xl text-2xl">⚡</div>
-<span class="text-xs font-bold bg-slate-100 dark:bg-gray-900 text-slate-500 dark:text-gray-400 px-2 py-1 rounded">Cálculo</span>
 </div>
-<h3 class="text-xl font-bold text-slate-800 dark:text-gray-100 mb-2">Balance Energético</h3>
-<p class="text-sm text-slate-500 dark:text-gray-400">Calcula tu TDEE (Gasto Energético Total Diario) y personaliza tus objetivos.</p>
+
 </div>
 <div class="glass-panel p-6 rounded-2xl border-t-4 border-indigo-500 hover:-translate-y-1 transition-transform cursor-pointer" onclick="app.navigate('ai-suite')">
 <div class="flex justify-between items-start mb-4">
 <div class="p-3 bg-indigo-100 dark:bg-indigo-900/40 rounded-xl text-2xl">👽</div>
-<span class="text-xs font-bold bg-indigo-100 dark:bg-indigo-900/40 text-indigo-600 dark:text-indigo-300 px-2 py-1 rounded">Interactivo</span>
-</div>
-<h3 class="text-xl font-bold text-slate-800 dark:text-gray-100 mb-2">Consultor IA</h3>
-<p class="text-sm text-slate-500 dark:text-gray-400">Analiza fotos de platos (descripción) o pide menús personalizados al instante.</p>
-</div>
-</div>
-<div class="glass-panel p-8 rounded-3xl">
-<div class="flex flex-col md:flex-row items-center gap-8">
-<div class="flex-1">
-<h3 class="text-2xl font-bold text-slate-800 dark:text-gray-100 mb-4">El Plato Saludable Ideal</h3>
-<p class="text-slate-600 dark:text-gray-300 mb-6">
-Más allá de contar calorías, la proporción visual es clave. La ciencia moderna sugiere que la mitad de tu ingesta debe provenir de vegetales y frutas para garantizar el aporte de micronutrientes y fibra.
-</p>
-<ul class="space-y-3">
-<li class="flex items-center gap-3 text-sm text-slate-700 dark:text-gray-300">
-<span class="w-3 h-3 rounded-full bg-emerald-500"></span> 50% Vegetales y Frutas (Volumen y Fibra)
-</li>
-<li class="flex items-center gap-3 text-sm text-slate-700 dark:text-gray-300">
-<span class="w-3 h-3 rounded-full bg-amber-500"></span> 25% Granos Integrales (Energía Sostenida)
-</li>
-<li class="flex items-center gap-3 text-sm text-slate-700 dark:text-gray-300">
-<span class="w-3 h-3 rounded-full bg-red-500"></span> 25% Proteína Magra (Reparación)
-</li>
-</ul>
-</div>
-<div class="flex-1 w-full">
-<div class="chart-container">
-<canvas id="plateChart"></canvas>
-</div>
 </div>
 </div>
 </div>
 </section>
+
+
 <section id="view-macros" class="p-6 md:p-10 max-w-6xl mx-auto hidden fade-in">
 <div class="mb-10">
 <span class="text-emerald-600 font-bold tracking-wider text-sm uppercase">Módulo 1</span>
@@ -369,22 +319,13 @@ No todas las calorías son iguales. Entender la densidad calórica y la función
 <h3 class="text-xl font-bold text-slate-800 dark:text-gray-100">Densidad Calórica (kcal/gramo)</h3>
 <p class="text-sm text-slate-500 dark:text-gray-400">Observa cómo las grasas contienen más del doble de energía por gramo que las proteínas o carbohidratos.</p>
 </div>
-<div class="chart-container">
-<canvas id="densityChart"></canvas>
-</div>
 </div>
 <div class="glass-panel p-6 rounded-2xl flex flex-col">
 <div class="mb-6">
 <h3 class="text-xl font-bold text-slate-800 dark:text-gray-100">Distribución de Macronutrientes</h3>
 <p class="text-sm text-slate-500 dark:text-gray-400 mb-4">Selecciona un perfil para ver cómo cambia la recomendación de ingesta.</p>
 <div class="flex gap-2 p-1 bg-slate-100 dark:bg-gray-900 rounded-lg inline-flex">
-<button onclick="app.updateDistribution('standard')" class="px-4 py-2 text-sm rounded-md font-medium transition-all bg-white dark:bg-gray-900 shadow-sm text-slate-800 dark:text-gray-200 border border-slate-200 dark:border-gray-800" id="btn-standard">Estándar</button>
-<button onclick="app.updateDistribution('athlete')" class="px-4 py-2 text-sm rounded-md font-medium transition-all text-slate-500 dark:text-gray-400 hover:text-slate-700 dark:hover:text-gray-300 hover:bg-slate-100 dark:hover:bg-gray-800" id="btn-athlete">Atleta</button>
-<button onclick="app.updateDistribution('keto')" class="px-4 py-2 text-sm rounded-md font-medium transition-all text-slate-500 dark:text-gray-400 hover:text-slate-700 dark:hover:text-gray-300 hover:bg-slate-100 dark:hover:bg-gray-800" id="btn-keto">Low Carb</button>
 </div>
-</div>
-<div class="chart-container flex-grow">
-<canvas id="distributionChart"></canvas>
 </div>
 <div id="dist-text" class="mt-4 p-4 bg-emerald-50 dark:bg-emerald-900/30 rounded-xl text-sm text-emerald-800 dark:text-emerald-200 border border-emerald-100 dark:border-emerald-900/50">
 Equilibrio recomendado para la población general, priorizando salud a largo plazo.
@@ -400,59 +341,18 @@ Equilibrio recomendado para la población general, priorizando salud a largo pla
 Tu cuerpo es un motor biológico. Utiliza esta herramienta para estimar tu Tasa Metabólica Basal (lo que quemas en reposo) y tu Gasto Total Diario (TDEE). Estos números son el punto de partida para cualquier plan nutricional.
 </p>
 </div>
-<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
 <div class="lg:col-span-5 glass-panel p-8 rounded-3xl h-fit">
 <h3 class="font-bold text-xl text-slate-800 dark:text-gray-100 mb-6">Tus Parámetros</h3>
 <div class="space-y-5">
 <div class="grid grid-cols-2 gap-4">
-<div>
-<label class="block text-xs font-bold text-slate-500 dark:text-gray-400 uppercase mb-2">Género</label>
-<select id="calc-gender" class="w-full p-3 bg-slate-50 dark:bg-gray-900 border border-slate-200 dark:border-gray-800 rounded-xl focus:ring-2 focus:ring-amber-400 outline-none text-slate-700 dark:text-gray-200">
-<option value="male">Hombre</option>
-<option value="female">Mujer</option>
-</select>
-</div>
-<div>
-<label class="block text-xs font-bold text-slate-500 dark:text-gray-400 uppercase mb-2">Edad</label>
-<input type="number" id="calc-age" value="30" class="w-full p-3 bg-slate-50 dark:bg-gray-900 border border-slate-200 dark:border-gray-800 rounded-xl focus:ring-2 focus:ring-amber-400 outline-none text-slate-700 dark:text-gray-200">
-</div>
 </div>
 <div class="grid grid-cols-2 gap-4">
-<div>
-<label class="block text-xs font-bold text-slate-500 dark:text-gray-400 uppercase mb-2">Peso (kg)</label>
-<input type="number" id="calc-weight" value="70" class="w-full p-3 bg-slate-50 dark:bg-gray-900 border border-slate-200 dark:border-gray-800 rounded-xl focus:ring-2 focus:ring-amber-400 outline-none text-slate-700 dark:text-gray-200">
+  <div>
 </div>
-<div>
-<label class="block text-xs font-bold text-slate-500 dark:text-gray-400 uppercase mb-2">Altura (cm)</label>
-<input type="number" id="calc-height" value="175" class="w-full p-3 bg-slate-50 dark:bg-gray-900 border border-slate-200 dark:border-gray-800 rounded-xl focus:ring-2 focus:ring-amber-400 outline-none text-slate-700 dark:text-gray-200">
-</div>
-</div>
-<div>
-<label class="block text-xs font-bold text-slate-500 dark:text-gray-400 uppercase mb-2">Actividad Física</label>
-<select id="calc-activity" class="w-full p-3 bg-slate-50 dark:bg-gray-900 border border-slate-200 dark:border-gray-800 rounded-xl focus:ring-2 focus:ring-amber-400 outline-none text-slate-700 dark:text-gray-200">
-<option value="1.2">Sedentario (Oficina, poco movimiento)</option>
-<option value="1.375">Ligera (Ejercicio 1-3 días/sem)</option>
-<option value="1.55">Moderada (Ejercicio 3-5 días/sem)</option>
-<option value="1.725">Intensa (Ejercicio 6-7 días/sem)</option>
-</select>
-</div>
-<button onclick="app.calculateTDEE()" class="w-full py-4 bg-amber-500 hover:bg-amber-600 text-white font-bold rounded-xl shadow-lg shadow-amber-200/50 dark:shadow-amber-200/20 transition-all transform active:scale-95">
-Calcular Requerimientos
-</button>
 </div>
 </div>
 <div class="lg:col-span-7 space-y-6">
-<div class="bg-gray-950 text-white p-8 rounded-3xl shadow-xl relative overflow-hidden border border-gray-900">
-<div class="absolute right-0 top-0 opacity-10 text-9xl transform translate-x-10 -translate-y-10">⚡</div>
-<div class="relative z-10">
-<p class="text-gray-400 font-bold uppercase tracking-widest text-xs mb-2">Gasto Energético Diario (TDEE)</p>
-<div class="flex items-baseline gap-2">
-<span id="result-tdee" class="text-6xl font-extrabold text-amber-400">0</span>
-<span class="text-xl text-gray-400">kcal/día</span>
-</div>
-<p class="mt-4 text-gray-300 max-w-md">Estas son las calorías que necesitas para mantener tu peso actual considerando tu actividad.</p>
-</div>
-</div>
+
 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
 <div class="glass-panel p-6 rounded-2xl border-l-4 border-emerald-500">
 <h4 class="font-bold text-slate-700 dark:text-gray-200 mb-1">Déficit (Pérdida de Grasa)</h4>
@@ -487,28 +387,21 @@ Aplica lo aprendido. Usa la Inteligencia Artificial para analizar comidas reales
 <h3 class="font-bold text-lg text-slate-800 dark:text-gray-100 mb-4 flex items-center gap-2">
 <span>📸</span> Analizar Comida
 </h3>
-<textarea id="ai-food-input" placeholder="Ej: Dos tostadas con aguacate, un huevo revuelto y café negro..." class="w-full h-32 p-4 bg-white dark:bg-gray-900 border border-slate-200 dark:border-gray-800 rounded-xl focus:ring-2 focus:ring-indigo-400 outline-none resize-none text-sm transition-shadow text-slate-700 dark:text-gray-200 placeholder-slate-400 dark:placeholder-gray-500"></textarea>
-<button onclick="app.analyzeFood()" id="btn-analyze" class="w-full mt-4 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-xl transition-colors flex justify-center items-center gap-2">
+
 <span>✨</span> Analizar Nutrientes
-</button>
 </div>
 <div class="glass-panel p-6 rounded-3xl border border-emerald-100 dark:border-emerald-900/40">
 <h3 class="font-bold text-lg text-slate-800 dark:text-gray-100 mb-4 flex items-center gap-2">
 <span>📅</span> Planificador Rápido
 </h3>
 <div class="space-y-3">
-<select id="ai-plan-goal" class="w-full p-3 bg-white dark:bg-gray-900 border border-slate-200 dark:border-gray-800 rounded-xl text-sm outline-none text-slate-700 dark:text-gray-200">
-<option value="pérdida de grasa">Pérdida de Grasa</option>
-<option value="ganancia muscular">Ganancia Muscular</option>
-<option value="energía y vitalidad">Energía y Vitalidad</option>
-</select>
-<input type="text" id="ai-plan-cal" placeholder="Calorías objetivo (Opcional)" class="w-full p-3 bg-white dark:bg-gray-900 border border-slate-200 dark:border-gray-800 rounded-xl text-sm outline-none text-slate-700 dark:text-gray-200 placeholder-slate-400 dark:placeholder-gray-500">
+
 </div>
-<button onclick="app.generatePlan()" id="btn-plan" class="w-full mt-4 py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl transition-colors flex justify-center items-center gap-2">
-<span>✨</span> Generar Menú
-</button>
+
 </div>
 </div>
+</div>
+</section>
 <div class="lg:col-span-8 flex flex-col h-[600px] glass-panel rounded-3xl overflow-hidden shadow-2xl border-0">
 <div class="bg-gray-950 p-4 flex justify-between items-center border-b border-gray-900">
 <span class="text-gray-100 font-bold flex items-center gap-2"><span class="w-2 h-2 bg-emerald-400 rounded-full"></span>Agustín Díaz</span>
@@ -544,8 +437,6 @@ Aplica lo aprendido. Usa la Inteligencia Artificial para analizar comidas reales
 </div>
 </div>
 </div>
-</div>
-</section>
 </main>
 <script>
 
@@ -594,306 +485,30 @@ const app = {
         // Cerrar menú móvil si está abierto
         document.getElementById('mobile-menu').classList.add('hidden');
     },
+  
+  callGemini: async function(prompt, systemInstruction = "Tu nombre es Agustín Díaz y eres un experto nutricionista.") {
+  // Dirección de TU función Netlify
+  const functionUrl = '/.netlify/functions/chat';
+  
+  try {
+    const response = await fetch(functionUrl, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ prompt, systemInstruction })
+    });
     
-    setupCharts: function() {
-        // Gráfico del Plato
-        const ctxPlate = document.getElementById('plateChart').getContext('2d');
-        this.charts.plate = new Chart(ctxPlate, {
-            type: 'pie',
-            data: {
-                labels: ['Vegetales/Frutas', 'Granos Integrales', 'Proteína Magra'],
-                datasets: [{
-                    data: [50, 25, 25],
-                    backgroundColor: ['#10b981', '#f59e0b', '#ef4444'],
-                    borderWidth: 0
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: { 
-                    legend: { 
-                        position: 'bottom',
-                        labels: {
-                            color: '#334155' // Color para modo claro
-                        }
-                    }
-                }
-            }
-        });
-        
-        // Gráfico de Densidad
-        const ctxDensity = document.getElementById('densityChart').getContext('2d');
-        this.charts.density = new Chart(ctxDensity, {
-            type: 'bar',
-            data: {
-                labels: ['Vegetales', 'Carbohidratos', 'Proteínas', 'Alcohol', 'Grasas'],
-                datasets: [{
-                    label: 'Kcal por gramo',
-                    data: [0.5, 4, 4, 7, 9],
-                    backgroundColor: ['#10b981', '#3b82f6', '#ef4444', '#94a3b8', '#f59e0b'],
-                    borderRadius: 6
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: { 
-                    legend: { 
-                        display: false 
-                    }
-                },
-                scales: { 
-                    y: { 
-                        beginAtZero: true,
-                        ticks: {
-                            color: '#334155' // Color para modo claro
-                        }
-                    },
-                    x: {
-                        ticks: {
-                            color: '#334155'
-                        }
-                    }
-                }
-            }
-        });
-        
-        // Gráfico de Distribución
-        const ctxDist = document.getElementById('distributionChart').getContext('2d');
-        this.charts.dist = new Chart(ctxDist, {
-            type: 'doughnut',
-            data: {
-                labels: ['Carbohidratos', 'Proteínas', 'Grasas'],
-                datasets: [{
-                    data: [50, 20, 30],
-                    backgroundColor: ['#3b82f6', '#ef4444', '#f59e0b'],
-                    borderWidth: 0,
-                    hoverOffset: 10
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                cutout: '75%',
-                plugins: {
-                    legend: { 
-                        position: 'right',
-                        labels: {
-                            color: '#334155'
-                        }
-                    },
-                    title: { 
-                        display: true, 
-                        text: 'Perfil Estándar',
-                        color: '#334155'
-                    }
-                }
-            }
-        });
-        
-        // Actualizar colores de gráficos para modo oscuro
-        const updateChartColors = () => {
-            const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-            const textColor = isDark ? '#f8fafc' : '#334155';
-            
-            // Actualizar gráfico de plato
-            this.charts.plate.options.plugins.legend.labels.color = textColor;
-            this.charts.plate.update();
-            
-            // Actualizar gráfico de densidad
-            this.charts.density.options.scales.y.ticks.color = textColor;
-            this.charts.density.options.scales.x.ticks.color = textColor;
-            this.charts.density.update();
-            
-            // Actualizar gráfico de distribución
-            this.charts.dist.options.plugins.legend.labels.color = textColor;
-            this.charts.dist.options.plugins.title.color = textColor;
-            this.charts.dist.update();
-        };
-        
-        // Escuchar cambios en el tema
-        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', updateChartColors);
-        
-        // Aplicar colores iniciales
-        updateChartColors();
-    },
+    const data = await response.json();
     
-    updateDistribution: function(profile) {
-        // Actualizar botones
-        ['standard', 'athlete', 'keto'].forEach(id => {
-            const btn = document.getElementById(`btn-${id}`);
-            btn.className = (id === profile)
-                ? "px-4 py-2 text-sm rounded-md font-medium transition-all bg-white dark:bg-gray-900 shadow-sm text-slate-800 dark:text-gray-200 border border-slate-200 dark:border-gray-800"
-                : "px-4 py-2 text-sm rounded-md font-medium transition-all text-slate-500 dark:text-gray-400 hover:text-slate-700 dark:hover:text-gray-300 hover:bg-slate-100 dark:hover:bg-gray-800";
-        });
-        
-        let data, text, title;
-        if (profile === 'standard') {
-            data = [50, 20, 30];
-            title = "Perfil Estándar";
-            text = "Equilibrio recomendado para la población general.";
-        } else if (profile === 'athlete') {
-            data = [55, 25, 20];
-            title = "Perfil Atleta";
-            text = "Optimizado para rendimiento y recuperación muscular.";
-        } else if (profile === 'keto') {
-            data = [10, 30, 60];
-            title = "Perfil Low Carb/Keto";
-            text = "Uso de grasas como fuente principal de energía.";
-        }
-        
-        this.charts.dist.data.datasets[0].data = data;
-        this.charts.dist.options.plugins.title.text = title;
-        this.charts.dist.update();
-        document.getElementById('dist-text').innerText = text;
-    },
-    
-    calculateTDEE: function() {
-        const gender = document.getElementById('calc-gender').value;
-        const age = parseFloat(document.getElementById('calc-age').value) || 0;
-        const weight = parseFloat(document.getElementById('calc-weight').value) || 0;
-        const height = parseFloat(document.getElementById('calc-height').value) || 0;
-        const activity = parseFloat(document.getElementById('calc-activity').value) || 1.2;
-        
-        if (!age || !weight || !height) return;
-        
-        let bmr = (10 * weight) + (6.25 * height) - (5 * age);
-        bmr += (gender === 'male') ? 5 : -161;
-        const tdee = Math.round(bmr * activity);
-        
-        this.state.tdee = tdee;
-        document.getElementById('result-tdee').innerText = tdee;
-        document.getElementById('result-cut').innerHTML = `${Math.round(tdee * 0.8)} <span class="text-sm text-slate-500 dark:text-gray-400">kcal</span>`;
-        document.getElementById('result-bulk').innerHTML = `${Math.round(tdee * 1.1)} <span class="text-sm text-slate-500 dark:text-gray-400">kcal</span>`;
-    },
-    
-    // REEMPLAZA la función 'callGemini' actual por esta:
-callGemini: async function(prompt, systemInstruction = "Tu nombre es Agustín Díaz y eres un experto nutricionista.") {
-    // Dirección de TU función Netlify
-    const functionUrl = '/.netlify/functions/chat';
-    
-    try {
-        const response = await fetch(functionUrl, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ prompt, systemInstruction })
-        });
-        
-        const data = await response.json();
-        
-        if (!response.ok) {
-            throw new Error(data.error || 'Error en el servidor');
-        }
-        
-        return data.reply;
-    } catch (error) {
-        return `⚠️ Error al conectar con el asistente: ${error.message}`;
+    if (!response.ok) {
+      throw new Error(data.error || 'Error en el servidor');
     }
+    
+    return data.reply;
+  } catch (error) {
+    return `⚠️ Error al conectar con el asistente: ${error.message}`;
+  }
 },
     
-    addMessage: function(role, text) {
-        const container = document.getElementById('chat-container');
-        const isUser = role === 'user';
-        
-        const wrapper = document.createElement('div');
-        wrapper.className = `flex gap-4 ${isUser ? 'justify-end' : ''}`;
-        
-        const avatar = isUser ? '' : '<div class="w-8 h-8 rounded-full bg-indigo-100 dark:bg-indigo-900 flex items-center justify-center text-lg flex-shrink-0">👽</div>';
-        const bubble = document.createElement('div');
-        bubble.className = isUser
-            ? 'bg-indigo-600 text-white p-4 rounded-2xl rounded-tr-none'
-            : 'bg-white dark:bg-gray-900 p-4 rounded-2xl rounded-tl-none border border-slate-100 dark:border-gray-800';
-        bubble.innerHTML = text.replace(/\n/g, '<br>');
-        
-        wrapper.innerHTML = isUser ? bubble.outerHTML : avatar + bubble.outerHTML;
-        container.appendChild(wrapper);
-        container.scrollTop = container.scrollHeight;
-    },
-    
-    analyzeFood: async function() {
-        const input = document.getElementById('ai-food-input').value;
-        if (!input) return;
-        
-        const btn = document.getElementById('btn-analyze');
-        btn.disabled = true;
-        btn.innerHTML = '<span class="loader"></span>';
-        
-        this.addMessage('user', `Analiza esto: ${input}`);
-        this.addMessage('ai', 'Analizando composición nutricional...');
-        
-        const prompt = `Actúa como nutricionista. Analiza: "${input}". 
-        1. Calorías estimadas. 
-        2. Macros aproximados (proteínas, carbohidratos, grasas). 
-        3. Puntos positivos y negativos. 
-        4. Sugerencias para mejorar. 
-        5. Veredicto final (¿Es una comida saludable?).`;
-        
-        const response = await this.callGemini(prompt);
-        this.addMessage('ai', response);
-        
-        btn.disabled = false;
-        btn.innerHTML = '<span>✨</span> Analizar Nutrientes';
-    },
-    
-    generatePlan: async function() {
-        const goal = document.getElementById('ai-plan-goal').value;
-        const cal = document.getElementById('ai-plan-cal').value;
-        
-        const btn = document.getElementById('btn-plan');
-        btn.disabled = true;
-        btn.innerHTML = '<span class="loader"></span>';
-        
-        const prompt = `Crea un menú diario detallado para el objetivo: ${goal}. 
-        ${cal ? `Calorías objetivo: ${cal}.` : ''}
-        Incluye:
-        1. Desayuno
-        2. Almuerzo
-        3. Cena
-        4. 2 meriendas/snacks
-        5. Total calórico estimado
-        6. Distribución de macronutrientes
-        7. Consejos para preparación`;
-        
-        
-        this.addMessage('user', `Genera un plan para ${goal}`);
-        this.addMessage('ai', 'Diseñando tu menú personalizado...');
-        
-        const response = await this.callGemini(prompt);
-        this.addMessage('ai', response);
-        
-        btn.disabled = false;
-        btn.innerHTML = '<span>✨</span> Generar Menú';
-    },
-    
-    sendChat: async function() {
-        const input = document.getElementById('chat-input');
-        const text = input.value;
-        if (!text) return;
-        
-        input.value = '';
-        this.addMessage('user', text);
-        
-        const container = document.getElementById('chat-container');
-        
-        const thinking = document.createElement('div');
-        thinking.id = 'thinking-bubble';
-        thinking.className = 'flex gap-4';
-        thinking.innerHTML = '<div class="w-8 h-8 bg-indigo-100 dark:bg-indigo-900 rounded-full flex items-center justify-center"></div><div class="bg-white dark:bg-gray-900 p-4 rounded-2xl border border-slate-100 dark:border-gray-800"><div class="loader"></div></div>';
-        
-        container.appendChild(thinking);
-        container.scrollTop = container.scrollHeight;
-        
-        const response = await this.callGemini(text, "Tu nombre es Agustín Diaz y eres mi maestro de nutrición certificado. Responde con base científica, sé claro y conciso. Estas únicamente para hablar de nutrición");
-        
-        thinking.remove();
-        this.addMessage('ai', response);
-    },
-    
-    clearChat: function() {
-        document.getElementById('chat-container').innerHTML = '';
-        this.addMessage('ai', 'Chat reiniciado. ¿En qué puedo ayudarte hoy?');
-    }
 };
 
 window.onload = () => app.init();
